@@ -54,7 +54,7 @@ public class Manager {
 
     public void sendBlock(int index, int row, int column) {
         if (board.placeBlock(player.blocks.get(index), row, column)) {
-            player.blocks.remove(index);
+            deleteBlocks(index);
             if (player.blocks.isEmpty())
                 addBlocks();
             checkColumn();

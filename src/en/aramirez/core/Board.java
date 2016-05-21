@@ -192,7 +192,7 @@ public class Board {
             boxes[idAux + 20] = new OccupiedBox(idAux + 20);
             return true;
         }
-        else if ((block == block.SQUARE9) && (adjacencies[idAux][idAux - 10]) && (adjacencies[idAux][idAux + 10])
+        else if ((block == Block.SQUARE9) && (adjacencies[idAux][idAux - 10]) && (adjacencies[idAux][idAux + 10])
                 && (adjacencies[idAux][idAux + 1]) && (adjacencies[idAux][idAux - 1]) && (adjacencies[idAux - 1][idAux - 11])
                 && (adjacencies[idAux + 1][idAux - 9]) && (adjacencies[idAux + 1][idAux + 11])
                 && (adjacencies[idAux - 1][idAux + 9]) && (boxes[idAux].place()) && (boxes[idAux - 1].place())
