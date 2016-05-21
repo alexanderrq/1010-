@@ -14,4 +14,8 @@ public class EmptyBox extends Box {
     public void print(){
         System.out.print("[ ]");
     }
+
+    public boolean place() {
+        return true;
+    }
 }

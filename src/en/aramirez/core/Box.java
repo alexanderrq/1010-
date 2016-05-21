@@ -13,4 +13,6 @@ public abstract class Box {
     }
 
     public abstract void print();
+
+    public abstract boolean place();
 }

@@ -14,4 +14,8 @@ public class OccupiedBox extends Box {
     public void print() {
         System.out.print("[*]");
     }
+
+    public boolean place() {
+        return false;
+    }
 }
