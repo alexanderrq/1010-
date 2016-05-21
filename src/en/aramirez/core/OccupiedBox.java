@@ -8,6 +8,7 @@ public class OccupiedBox extends Box {
     public OccupiedBox(int id) {
         this.id = id;
         this.color = 1;
+        this.full = true;
     }
 
     @Override
@@ -18,4 +19,6 @@ public class OccupiedBox extends Box {
     public boolean place() {
         return false;
     }
+
+
 }

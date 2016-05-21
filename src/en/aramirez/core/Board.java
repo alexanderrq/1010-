@@ -213,7 +213,23 @@ public class Board {
         else return false;
     }
 
+    public void deleteColumn(int column) {
+        while (column < 100) {
+            boxes[column] = new EmptyBox(column);
+            column += 10;
+        }
+    }
+
+    public void deleteRow(int row) {
+        for (int i = 0; i < 10; i++)
+            boxes[getId(row, i)] = new EmptyBox(getId(row, i));
+    }
+
     private int getId(int row, int column){
         return (10 * row + column);
+    }
+
+    public boolean isFull(int row, int column){
+        return boxes[getId(row, column)].isFull();
     }
 }

@@ -7,6 +7,11 @@ public abstract class Box {
 
     protected int id;
     protected int color;
+    protected boolean full;
+
+    public boolean isFull() {
+        return full;
+    }
 
     public int getId() {
         return id;
