@@ -17,11 +17,13 @@ public class Main {
             manager.print();
             System.out.print("Indique la pieza que desea colocar (0-2): ");
             op = input.nextInt();
+            if (op == 9)
+                break;
             System.out.println();
             System.out.print("Indique la fila donde desea colocar la pieza (0-9):");
             row = input.nextInt();
             System.out.println();
-            System.out.print("Indique donde desea colocar la pieza (0-9): ");
+            System.out.print("Indique la columna donde desea colocar la pieza (0-9): ");
             column = input.nextInt();
             System.out.println();
 

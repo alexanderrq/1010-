@@ -5,10 +5,12 @@ package en.aramirez.core;
  */
 public class Board {
 
+    public int score;
     private Box[] boxes;
     private boolean[][] adjacencies;
 
     public Board() {
+        score = 0;
         boxes = new Box[100];
         adjacencies = new boolean[100][100];
         for (int i = 0; i < 100; i++){
@@ -43,18 +45,21 @@ public class Board {
         int idAux = getId(row, column);
         if ((block == Block.SINGLE) && (boxes[idAux].place())) {
             boxes[idAux] = new OccupiedBox(idAux);
+            score += 1;
             return true;
         }
         else if ((block == Block.HORIZONTAL2) && (adjacencies[idAux][idAux + 1]) && (boxes[idAux].place())
                 && (boxes[idAux + 1].place())) {
             boxes[idAux] = new OccupiedBox(idAux);
             boxes[idAux + 1] = new OccupiedBox(idAux + 1);
+            score += 2;
             return true;
         }
         else if ((block == Block.VERTICAL2) && (adjacencies[idAux][idAux + 10]) && (boxes[idAux].place())
                 && (boxes[idAux + 10].place())) {
             boxes[idAux] = new OccupiedBox(idAux);
             boxes[idAux + 10] = new OccupiedBox(idAux + 10);
+            score += 2;
             return true;
         }
         else if ((block == Block.VERTICAL3) && (adjacencies[idAux][idAux + 10]) && (adjacencies[idAux + 10][idAux + 20])
@@ -62,6 +67,7 @@ public class Board {
             boxes[idAux] = new OccupiedBox(idAux);
             boxes[idAux + 10] = new OccupiedBox(idAux + 10);
             boxes[idAux + 20] = new OccupiedBox(idAux + 20);
+            score += 3;
             return true;
         }
         else if ((block == Block.HORIZONTAL3) && (adjacencies[idAux][idAux + 1]) && (adjacencies[idAux + 1][idAux + 2])
@@ -69,6 +75,7 @@ public class Board {
             boxes[idAux] = new OccupiedBox(idAux);
             boxes[idAux + 1] = new OccupiedBox(idAux + 1);
             boxes[idAux + 2] = new OccupiedBox(idAux + 2);
+            score += 3;
             return true;
         }
         else if ((block == Block.RIGHT_UP3) && (adjacencies[idAux][idAux + 1]) && (adjacencies[idAux + 1][idAux - 9])
@@ -76,6 +83,7 @@ public class Board {
             boxes[idAux] = new OccupiedBox(idAux);
             boxes[idAux + 1] = new OccupiedBox(idAux + 1);
             boxes[idAux - 9] = new OccupiedBox((idAux + 1 ) - 10);
+            score += 3;
             return true;
         }
         else if ((block == Block.LEFT_UP3) && (adjacencies[idAux][idAux + 10]) && (adjacencies[idAux + 10][idAux + 11])
@@ -83,6 +91,7 @@ public class Board {
             boxes[idAux] = new OccupiedBox(idAux);
             boxes[idAux + 10] = new OccupiedBox(idAux + 10);
             boxes[idAux + 11] = new OccupiedBox(idAux + 11);
+            score += 3;
             return true;
         }
         else if ((block == Block.RIGHT_DOWN3) && (adjacencies[idAux][idAux + 1]) && (adjacencies[idAux + 1][idAux + 11])
@@ -90,6 +99,7 @@ public class Board {
             boxes[idAux] = new OccupiedBox(idAux);
             boxes[idAux + 1] = new OccupiedBox(idAux + 1);
             boxes[idAux + 11] = new OccupiedBox(idAux + 11);
+            score += 3;
             return true;
         }
         else if ((block == Block.LEFT_DOWN3) && (adjacencies[idAux][idAux + 1]) && (adjacencies[idAux][idAux + 10])
@@ -97,6 +107,7 @@ public class Board {
             boxes[idAux] = new OccupiedBox(idAux);
             boxes[idAux + 1] = new OccupiedBox(idAux + 1);
             boxes[idAux + 10] = new OccupiedBox(idAux + 10);
+            score += 3;
             return true;
         }
         else if ((block == Block.SQUARE4) && (adjacencies[idAux][idAux + 1]) && (adjacencies[idAux][idAux + 10])
@@ -106,6 +117,7 @@ public class Board {
             boxes[idAux + 1] = new OccupiedBox(idAux + 1);
             boxes[idAux + 10] = new OccupiedBox(idAux + 10);
             boxes[idAux + 11] = new OccupiedBox(idAux + 11);
+            score += 4;
             return true;
         }
         else if ((block == Block.VERTICAL4) && (adjacencies[idAux][idAux + 10]) && (adjacencies[idAux + 10][idAux + 20])
@@ -115,6 +127,7 @@ public class Board {
             boxes[idAux + 10] = new OccupiedBox(idAux + 10);
             boxes[idAux + 20] = new OccupiedBox(idAux + 20);
             boxes[idAux + 30] = new OccupiedBox(idAux + 30);
+            score += 4;
             return true;
         }
         else if ((block == Block.HORIZONTAL4) && (adjacencies[idAux][idAux + 1]) && (adjacencies[idAux + 1][idAux + 2])
@@ -124,6 +137,7 @@ public class Board {
             boxes[idAux + 1] = new OccupiedBox(idAux + 1);
             boxes[idAux + 2] = new OccupiedBox(idAux + 2);
             boxes[idAux + 3] = new OccupiedBox(idAux + 3);
+            score += 4;
             return true;
         }
         else if ((block == Block.VERTICAL5) && (adjacencies[idAux][idAux + 10]) && (adjacencies[idAux + 10][idAux + 20])
@@ -135,6 +149,7 @@ public class Board {
             boxes[idAux + 20] = new OccupiedBox(idAux + 20);
             boxes[idAux + 30] = new OccupiedBox(idAux + 30);
             boxes[idAux + 40] = new OccupiedBox(idAux + 40);
+            score += 5;
             return true;
         }
         else if ((block == Block.HORIZONTAL5) && (adjacencies[idAux][idAux + 1]) && (adjacencies[idAux + 1][idAux + 2])
@@ -146,6 +161,7 @@ public class Board {
             boxes[idAux + 2] = new OccupiedBox(idAux + 2);
             boxes[idAux + 3] = new OccupiedBox(idAux + 3);
             boxes[idAux + 4] = new OccupiedBox(idAux + 4);
+            score += 5;
             return true;
         }
         else if ((block == Block.RIGHT_UP5) && (adjacencies[idAux][idAux - 1]) && (adjacencies[idAux - 1][idAux - 2])
@@ -157,6 +173,7 @@ public class Board {
             boxes[idAux - 2] = new OccupiedBox(idAux - 2);
             boxes[idAux - 10] = new OccupiedBox(idAux - 10);
             boxes[idAux - 20] = new OccupiedBox(idAux - 20);
+            score += 5;
             return true;
         }
         else if ((block == Block.LEFT_UP5) && (adjacencies[idAux][idAux + 1]) && (adjacencies[idAux + 1][idAux + 2])
@@ -168,6 +185,7 @@ public class Board {
             boxes[idAux + 2] = new OccupiedBox(idAux + 2);
             boxes[idAux - 10] = new OccupiedBox(idAux - 10);
             boxes[idAux - 20] = new OccupiedBox(idAux - 20);
+            score += 5;
             return true;
         }
         else if ((block == Block.RIGHT_DOWN5) && (adjacencies[idAux][idAux - 1]) && (adjacencies[idAux - 1][idAux - 2])
@@ -179,6 +197,7 @@ public class Board {
             boxes[idAux - 2] = new OccupiedBox(idAux - 2);
             boxes[idAux + 10] = new OccupiedBox(idAux + 10);
             boxes[idAux + 20] = new OccupiedBox(idAux + 20);
+            score += 5;
             return true;
         }
         else if ((block == Block.LEFT_DOWN5) && (adjacencies[idAux][idAux + 1]) && (adjacencies[idAux + 1][idAux + 2])
@@ -190,6 +209,7 @@ public class Board {
             boxes[idAux + 2] = new OccupiedBox(idAux + 2);
             boxes[idAux + 10] = new OccupiedBox(idAux + 10);
             boxes[idAux + 20] = new OccupiedBox(idAux + 20);
+            score += 5;
             return true;
         }
         else if ((block == Block.SQUARE9) && (adjacencies[idAux][idAux - 10]) && (adjacencies[idAux][idAux + 10])
@@ -208,6 +228,7 @@ public class Board {
             boxes[idAux - 9] = new OccupiedBox(idAux - 9);
             boxes[idAux + 9] = new OccupiedBox(idAux + 9);
             boxes[idAux + 11] = new OccupiedBox(idAux + 11);
+            score += 9;
             return true;
         }
         else return false;

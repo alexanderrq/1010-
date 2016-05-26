@@ -31,8 +31,10 @@ public class Manager {
                     break;
                 }
             }
-            if (cont)
+            if (cont) {
                 board.deleteColumn(column);
+                board.score += 10;
+            }
             cont = true;
         }
     }
@@ -46,8 +48,10 @@ public class Manager {
                     break;
                 }
             }
-            if (cont)
+            if (cont) {
                 board.deleteRow(row);
+                board.score += 10;
+            }
             cont = true;
         }
     }
@@ -64,6 +68,7 @@ public class Manager {
     }
 
     public void print() {
+        System.out.println("        Puntaje: "+board.score);
         board.print();
         System.out.println(player.blocks);
     }
